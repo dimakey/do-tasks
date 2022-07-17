@@ -4,6 +4,8 @@ import { mixins } from "../../styles/mixins";
 export const StyledModalContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.bgPrimary};
   border-radius: ${({ theme }) => theme.radius.md};
+  min-width: 300px;
+  width: 400px;
   ${mixins.shadow.small};
 `;
 
@@ -18,7 +20,6 @@ export const ModalHeader = styled.div`
 export const ModalBody = styled.div`
   display: flex;
   flex-direction: column;
-  width: 400px;
   padding: 1rem;
 `;
 
