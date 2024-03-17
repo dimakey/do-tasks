@@ -19,7 +19,7 @@ const sortFunctions = {
 const selectSortedTasks = createSelector(
   [selectAllTasks, selectCurrentSortType],
   (tasks, sortType) => {
-    const sortFunction = sortFunctions[sortType] || sortTypes.DEFAULT;
+    const sortFunction = sortFunctions[sortType];
     return [...tasks].sort(sortFunction);
   }
 );
