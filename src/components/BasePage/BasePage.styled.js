@@ -7,6 +7,8 @@ export const Headline = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  margin-bottom: 1rem;
 `;
 
 export const Title = styled.h1`
@@ -26,15 +28,7 @@ export const TaskList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding-bottom: 6rem;
-
-  @media (max-width: 768px) {
-    padding-bottom: 4rem;
-  }
-
-  @media (max-width: 425px) {
-    padding-bottom: 2rem;
-  }
+  margin-top: 1rem;
 `;
 
 export const TitleIcon = styled.div`

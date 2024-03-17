@@ -7,7 +7,7 @@ import FeaturedPage from "../../pages/FeaturedPage";
 import UpcomingPage from "../../pages/UpcomingPage";
 import CompletedPage from "../../pages/CompletedPage";
 import TagsPage from "../../pages/TagsPage";
-import SearchPage from "../../pages/SearchPage";
+import SearchResultsPage from "../../pages/SearchResultsPage";
 import TestPage from "../../pages/TestPage";
 import Page404 from "../../pages/Page404";
 
@@ -23,7 +23,7 @@ const MainLayout = () => {
         <Route path="completed" element={<CompletedPage />} />
         <Route path="tag/:tagID" element={<TagsPage />} />
 
-        <Route path="search/:searchValue" element={<SearchPage />} />
+        <Route path="search/:searchValue" element={<SearchResultsPage />} />
         <Route path="test" element={<TestPage />} />
 
         <Route path="/404" element={<Page404 />} />

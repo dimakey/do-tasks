@@ -5,30 +5,22 @@ import { sortTypes } from "../../utils/constants";
 export const selectAllTasks = ({ tasks }) => tasks.taskList;
 const selectCurrentSortType = ({ tasks }) => tasks.currentSortType;
 
+const sortFunctions = {
+  [sortTypes.ALPHABETICAL_ASC]: (a, b) =>
+    a.description.localeCompare(b.description),
+  [sortTypes.ALPHABETICAL_DESC]: (a, b) =>
+    b.description.localeCompare(a.description),
+  [sortTypes.DATE_DUE_ASC]: (a, b) => a.dateDue - b.dateDue,
+  [sortTypes.DATE_DUE_DESC]: (a, b) => b.dateDue - a.dateDue,
+  [sortTypes.PRIORITY_ASC]: (a, b) => a.priority - b.priority,
+  [sortTypes.PRIORITY_DESC]: (a, b) => b.priority - a.priority,
+};
+
 const selectSortedTasks = createSelector(
   [selectAllTasks, selectCurrentSortType],
   (tasks, sortType) => {
-    switch (sortType) {
-      case sortTypes.ALPHABETICAL_ASC:
-        return [...tasks].sort((a, b) =>
-          a.description.localeCompare(b.description)
-        );
-      case sortTypes.ALPHABETICAL_DESC:
-        return [...tasks].sort((a, b) =>
-          b.description.localeCompare(a.description)
-        );
-      case sortTypes.DATE_DUE_ASC:
-        return [...tasks].sort((a, b) => a.dateDue - b.dateDue);
-      case sortTypes.DATE_DUE_DESC:
-        return [...tasks].sort((a, b) => b.dateDue - a.dateDue);
-      case sortTypes.PRIORITY_ASC:
-        console.log("priority asc");
-        return [...tasks].sort((a, b) => a.priority - b.priority);
-      case sortTypes.PRIORITY_DESC:
-        return [...tasks].sort((a, b) => b.priority - a.priority);
-      default:
-        return tasks;
-    }
+    const sortFunction = sortFunctions[sortType] || sortTypes.DEFAULT;
+    return [...tasks].sort(sortFunction);
   }
 );
 

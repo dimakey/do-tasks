@@ -5,11 +5,11 @@ import { Search } from "akar-icons";
 import React from "react";
 import BasePage from "../components/BasePage/BasePage";
 
-const SearchPage = () => {
+const SearchResultsPage = () => {
   const { searchValue } = useParams();
   const searchTasks = useSelector(selectAllTasks);
   const filteredTasks = searchTasks.filter((t) =>
-    t.description.toLowerCase().includes(searchValue)
+    t.description.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   const title = `Search "${searchValue}"`;
@@ -29,4 +29,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+export default SearchResultsPage;

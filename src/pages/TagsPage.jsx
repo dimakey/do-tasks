@@ -4,7 +4,6 @@ import { Navigate } from "react-router-dom";
 import BasePage from "../components/BasePage/BasePage";
 import useTasksByTagParam from "../hooks/useTasksByTagParam";
 import { Tag } from "akar-icons";
-import { useParams } from "react-router-dom";
 
 const TagsPage = () => {
   const { tasks, tag } = useTasksByTagParam();

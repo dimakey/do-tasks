@@ -14,21 +14,25 @@ export const IMAGES = {
   error: errorImg,
 };
 
+const currentDate = new Date();
+const tomorrowDate = addDays(currentDate, 1);
+const nextWeekDate = addDays(currentDate, 7);
+
 export const dueDateOptions = [
   {
     label: "Today",
-    value: new Date(),
-    formatted: format(new Date(), DATE_FORMAT),
+    value: currentDate,
+    formatted: format(currentDate, DATE_FORMAT),
   },
   {
     label: "Tomorrow",
-    value: addDays(new Date(), 1),
-    formatted: format(addDays(new Date(), 1), DATE_FORMAT),
+    value: tomorrowDate,
+    formatted: format(tomorrowDate, DATE_FORMAT),
   },
   {
     label: "Next week",
-    value: addDays(new Date(), 7),
-    formatted: format(addDays(new Date(), 7), DATE_FORMAT),
+    value: nextWeekDate,
+    formatted: format(nextWeekDate, DATE_FORMAT),
   },
 ];
 

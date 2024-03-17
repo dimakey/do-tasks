@@ -5,8 +5,6 @@ export const AddTaskForm = styled.form`
   ${mixins.base.alignCenter};
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border-radius: ${({ theme }) => theme.radius.md};
-  margin: 1rem 0;
-  padding: 0.15rem 0;
   // transition: background 0.15s ease-in-out;
 
   @media (max-width: 768px) {
